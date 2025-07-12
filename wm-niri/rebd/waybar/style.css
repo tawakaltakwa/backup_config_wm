@@ -1,0 +1,557 @@
+* {
+/*    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace; */
+    font-family: 'Arimo Nerd Font Propo';
+    font-size: 13px;
+/*    border-radius: 6px; */
+}
+tooltip {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+tooltip * {
+    color: white;
+    text-shadow: none;
+}
+window {
+    color: #fff;
+}
+#wtitle {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+window#waybar {
+    background-color: transparent;
+    color: #fff;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+button {
+    margin-right: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+
+button:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#taskbar {
+    color: white;
+}
+#taskbar button {
+    padding: 0px 8px 0px 8px;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#taskbar button:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+#taskbar button.maximized {}
+#taskbar button.minimized {}
+#taskbar button.active {
+    color: #000;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(#fd0a02, #fd0a02), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#taskbar button.fullscreen {}
+#workspaces button {
+    padding: 0 5px;
+    color: #ffffff;
+}
+#workspaces button.active {
+    /*background-color: #22ddff;*/
+    color: #000;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(#fd0a02, #fd0a02), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+#workspaces button.focused {
+    background-color: #22ddff;
+}
+#workspaces button.urgent {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(#eb4d4b, #eb4d4b), linear-gradient(145deg, #22ddff, #00dd00);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 8px;
+    color: #ffffff;
+}
+#window,
+#workspaces {
+    background-color: transparent;
+}
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+#clock {
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#clock:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+/*
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+*/
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+label:focus {
+    background-color: #000000;
+}
+#cpu {
+    background-color: #2ecc71;
+    color: #000000;
+}
+#memory {
+    background-color: #9b59b6;
+}
+#disk {
+    background-color: #964B00;
+}
+#backlight {
+    background-color: #90b1b1;
+}
+#network {
+    background-color: #2980b9;
+}
+#network.disconnected {
+    background-color: #f53c3c;
+}
+#pulseaudio {
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#pulseaudio:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#pulseaudio.muted {
+    background-color: #fff;
+    color: #2a5c45;
+}
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+#temperature {
+    background-color: #f0932b;
+}
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+#tray {
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#tray > .active {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#tray > *:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+#idle_inhibitor {
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#idle_inhibitor:hover {
+	border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#idle_inhibitor.activated {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(#fd0a02, #fd0a02), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: black;
+}
+#idle_inhibitor.activated:hover {
+    background-color: #22ddff;
+}
+#mpd {
+    background-color: #fff;
+    color: #000;
+}
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+#mpd.paused {
+    background-color: #51a37a;
+}
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+#keyboard-state > label {
+    padding: 0 5px;
+}
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+#scratchpad.empty {
+    background-color: transparent;
+}
+#privacy {
+    padding: 0;
+}
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
+#custom-power {
+    color: #000;
+    background-color: #ff0000;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(#ff0000, #ff0000);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#custom-power:hover {
+    color: #f00;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+* menu {
+    padding-left: 0;
+    padding-right: 0;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+* menu > * {
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(black, black);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+* menu > *.active {
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(black, black);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+* menu > *:hover {
+/*    padding-left: 3px; */
+/*    padding-right: 3px; */
+    color: #000;
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(#fd0a02, #fd0a02), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#ItemPower {
+    color: #fff;
+    margin-right: 0;
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(black, black);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#ItemPower:Hover {
+    color: #000;
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(#fd0a02, #fd0a02), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#ItemPowerS {
+    color: #f00;
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(black, black);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#ItemPowerS:Hover {
+    color: #000;
+    border: 2px solid transparent;
+    border-radius: 0;
+    background-image: linear-gradient(#fd0a02, #fd0a02), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#custom-terminal {
+    background-color: #ffffff;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#custom-terminal:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+#pulseaudio-slider {
+    padding: 0px 12px 0px 12px;
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#pulseaudio-slider:hover {
+	border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+/*    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none; */
+}
+#pulseaudio-slider trough {
+    min-width: 80px;
+    min-height: 3px;
+    border-radius: 5px;
+    background-color: #22ddff;
+}
+#pulseaudio-slider highlight {
+    min-width: 3px;
+    border-radius: 5px;
+    background-color: #00dd00;
+}
+#custom-jamsunda {
+    background-color: #ffffff;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 1px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#bb0a02, #bb0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#custom-jamsunda:hover {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+

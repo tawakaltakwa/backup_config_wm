@@ -1,0 +1,27 @@
+window {
+    background-image: url("/home/FILES/backup_config/wm-niri/rebd/wallpaper/red_eyes_black_dragon_by_nhociory_df08crc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#window-box {
+    padding: 40px;
+	border: 3px solid #fd0a02;
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 12px;
+    background-color: #000000;
+    color: #ffffff;
+}
+button {
+    background-image: none; /* Penting untuk menimpa tema default */
+    background-color: #fd0a02; /* Warna latar belakang tombol (contoh: merah) */
+    color: #000000; /* Warna teks tombol (contoh: putih) */
+    border: 1px solid #fd0a02; /* Warna border tombol */
+    border-radius: 5px; /* Sudut membulat */
+    padding-left: 12px; /* Padding di dalam tombol */
+    padding-right: 12px;
+}
+entry {
+    border: 2px solid #fd0a02; /* Warna border kotak teks */
+    border-radius: 6px; /* Sudut membulat */
+}

@@ -1,0 +1,54 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(12, 12, 12, 0.9);
+}
+
+button {
+    border: 2px solid transparent;
+    border-color: #33ccff;
+    border-radius: 8px;
+	text-decoration-color: #FFFFFF;
+    color: #FFFFFF;
+	background-color: #1E1E1E;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30%;
+    margin: 2px;
+}
+
+button:focus {}
+button:active, button:hover {
+    border: 2px solid transparent;
+    border-color: #22ddff;
+    border-radius: 8px;
+	background-color: #22ddff;
+	outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/kal/.config/wlogout/logout.png"), url("/home/kal/.config/wlogout/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/kal/.config/wlogout/shutdown.png"), url("/home/kal/.config/wlogout/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/kal/.config/wlogout/reboot.png"), url("/home/kal/.config/wlogout/reboot.png"));
+}
