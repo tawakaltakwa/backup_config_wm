@@ -260,7 +260,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 //spawn-at-startup "swaybg" "-i" "/home/FILES/backup_config/wm-niri/rebd/wallpaper/red_eyes_black_dragon_by_nhociory_df08crc.jpg"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "bash" "/home/FILES/backup_config/wm-niri/rebd/wallpaper/waypaperubah.sh"
+spawn-at-startup "bash" "/home/FILES/appConfig/wm-niri/rebd/wallpaper/waypaperubah.sh"
 //spawn-at-startup "waypaper" "--random" "--folder" "/home/FILES/backup_config/wm-niri/rebd/wallpaper"
 spawn-at-startup "xwayland-satellite"
 //spawn-at-startup "/usr/bin/gnome-keyring-daemon" "--start" "--foreground" "--components=secrets"
@@ -268,13 +268,23 @@ spawn-at-startup "wmname" "LG3D"
 
 environment {
 	DISPLAY ":0"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+//    QT_SCALE_FACTOR_ROUNDING_POLICY "RoundPreferFloor"  
 //    GTK_USE_PORTAL "1"
 //    GDK_BACKEND "x11"
 }
+
+cursor {
+    xcursor-theme "Qogir-dark"
+    xcursor-size 24
+//    hide-when-typing
+//    hide-after-inactive-ms 1000
+}
+
 //exec-once = systemctl --user import-environment &
 //exec-once = hash dbus-update-activation-environment 2>/dev/null &
 //exec-once = dbus-update-activation-environment --systemd &
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+//spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/libexec/hyprpolkitagent"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -317,15 +327,6 @@ window-rule {
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -341,13 +342,29 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 12
     clip-to-geometry true
     draw-border-with-background false
+    open-floating false
 }
 
 window-rule {
-    match app-id="firefox"
+    match app-id="firefox*"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus"
+    open-maximized true
+}
+
+window-rule {
+    match title="Inkscape"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="gimp"
     open-maximized true
 }
 
@@ -365,6 +382,28 @@ window-rule {
     match app-id="Waydroid"
     open-maximized true
 }
+
+window-rule {
+    match app-id="aqua*"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="vlc"
+//    open-maximized true
+    open-fullscreen true
+    open-focused true
+}
+
+window-rule {
+    match app-id="uget"
+    open-focused true
+}
+
+//window-rule {
+//    match app-id="jetbrains-*"
+//    open-maximized true
+//}
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -384,13 +423,15 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 //    Mod+D hotkey-overlay-title="Run an Application: wofi drun" { spawn "wofi" "-s" "/home/kal/.config/wofi/styles.css" "--show" "drun" "-I" "-G"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+N hotkey-overlay-title="Run an Application: wofi run" { spawn "wofi" "-s" "/home/kal/.config/wofi/styles.css" "--show" "run"; }
-    Mod+E hotkey-overlay-title="File manager: nemo" { spawn "nemo"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel" "-w" "35"; }
+    Mod+Super_R hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel" "-w" "35"; }
+    Mod+N hotkey-overlay-title="Run an Application: dmenu run" { spawn "bemenu-run" "--tb=#ff0000ff" "--tf=#000000ff" "--fb=#000000ff" "--ff=#ffffffff" "-b" "--hf=#ff0000ff"; }
+    Mod+E hotkey-overlay-title="File manager: nautilus" { spawn "nautilus"; }
     Mod+B hotkey-overlay-title="Browser: Firefox" { spawn "firefox"; }
-    Mod+X hotkey-overlay-title="nwg Drawer" { spawn "nwg-drawer"; }
+//    Mod+X hotkey-overlay-title="nwg Drawer" { spawn "nwg-drawer"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: gtklock" { spawn "gtklock"; }
-    Alt+F2 { spawn "bemenu-run" "--fn" "12"; }
+//    Alt+F2 { spawn "bemenu-run" "--fn" "12"; }
+    Ctrl+Escape hotkey-overlay-title="System Monitor" { spawn "gnome-system-monitor"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
