@@ -239,6 +239,7 @@ label:focus {
     background-color: #f53c3c;
 }
 #pulseaudio {
+    color: #f00;
     margin-left: 1px;
     border: 2px solid transparent;
     border-radius: 6px;
@@ -247,6 +248,7 @@ label:focus {
     background-clip: padding-box, border-box;
 }
 #pulseaudio:hover {
+    color: #fff;
     border: 2px solid transparent;
     border-radius: 6px;
     background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
@@ -398,12 +400,12 @@ label:focus {
     padding-right: 8px;
     border: 2px solid transparent;
     border-radius: 6px;
-    background-image: linear-gradient(#ff0000, #ff0000);
+    background-image: linear-gradient(#ff0000, #ff0000), linear-gradient(#fd0a02, #fd0a02);
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
 #custom-power:hover {
-    color: #f00;
+    color: #fff;
     border: 2px solid transparent;
     border-radius: 6px;
     background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
@@ -497,6 +499,25 @@ label:focus {
     box-shadow: inherit;
     text-shadow: inherit;
 }
+#custom-launcher {
+    color: #000;
+    background-color: #ff0000;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(#ff0000, #ff0000), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+#custom-launcher:hover {
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
 #pulseaudio-slider {
     padding: 0px 12px 0px 12px;
     margin-left: 1px;
@@ -535,6 +556,7 @@ label:focus {
     background-color: #00dd00;
 }
 #custom-jamsunda {
+    color: #f00;
     background-color: #ffffff;
     padding-left: 8px;
     padding-right: 8px;
@@ -546,6 +568,7 @@ label:focus {
     background-clip: padding-box, border-box;
 }
 #custom-jamsunda:hover {
+    color: #fff;
     border: 2px solid transparent;
     border-radius: 6px;
     background-image: linear-gradient(black, black), linear-gradient(#fd0a02, #fd0a02);
