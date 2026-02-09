@@ -1,0 +1,28 @@
+{
+    "label" : "lock",
+    "action" : "gtklock",
+    "text" : "Lock",
+    "keybind" : "l",
+    "height" : 2,
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "Logout",
+    "keybind" : "e",
+    "height" : 2,
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r",
+    "height" : 2,
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s",
+    "height" : 2,
+}

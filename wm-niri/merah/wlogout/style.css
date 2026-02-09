@@ -1,0 +1,69 @@
+* {
+	background-image: none;
+	box-shadow: none;
+    margin: 0px;
+}
+
+window {
+	background-color: rgba(12, 12, 12, 0.7);
+    margin: 0px;
+}
+
+button {
+    border: 2px solid transparent;
+    border-color: #fd0a02;
+    border-radius: 8px;
+	text-decoration-color: #FFFFFF;
+    color: #FFFFFF;
+	background-color: #1E1E1E;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20%;
+    margin: 2px;
+    padding: 10px;
+}
+
+button:focus {}
+button:active, button:hover {
+    border: 2px solid transparent;
+    border-color: #fd0a02;
+    border-radius: 8px;
+	background-color: #fd0a02;
+	outline-style: none;
+}
+/*
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+*/
+#lock {
+    background-image: image(url("/home/kal/.config/wlogout/icon-putih/lock.png"), url("/home/kal/.config/wlogout/icon-putih/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/kal/.config/wlogout/icon-putih/logout.png"), url("/home/kal/.config/wlogout/icon-putih/logout.png"));
+}
+
+#suspend {
+    background: none;
+    border: none;
+    /*
+    background-image: image(url("/home/kal/.config/wlogout/icon-putih/suspend.png"), url("/home/kal/.config/wlogout/icon-putih/suspend.png"));
+*/
+}
+
+#hibernate {
+    background: none;
+    border: none;
+    /*
+    background-image: image(url("/home/kal/.config/wlogout/icon-putih/hibernate.png"), url("/home/kal/.config/wlogout/icon-putih/hibernate.png"));
+*/
+}
+
+#shutdown {
+    background-image: image(url("/home/kal/.config/wlogout/icon-putih/shutdown.png"), url("/home/kal/.config/wlogout/icon-putih/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/kal/.config/wlogout/icon-putih/reboot.png"), url("/home/kal/.config/wlogout/icon-putih/reboot.png"));
+}
